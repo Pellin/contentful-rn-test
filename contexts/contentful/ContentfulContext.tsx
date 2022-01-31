@@ -12,7 +12,7 @@ export const ContentContext =
   React.createContext<ContentContextInterface | null>(null)
 
 const ContentContextProvider: React.FC = (props) => {
-  const [articles, setArticles] = useState<Article[]>()
+  const [articles, setArticles] = useState<Article[]>([])
 
   useEffect(() => {
     client

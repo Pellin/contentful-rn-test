@@ -26,6 +26,15 @@ export interface Article {
     category: string
     celebrities: object[]
     headline: string
+    images: ArticleImage[]
+    featureImage: ArticleImage
+  }
+}
+export interface ArticleImage {
+  fields: {
+    file: {
+      url: string
+    }
   }
 }
 
