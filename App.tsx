@@ -1,22 +1,15 @@
+import UserContextProvider from './contexts/user/UserContext'
+import { NavigationContainer } from '@react-navigation/native'
+import AuthNavigator from './navigators/AuthNavigator'
 import { StatusBar } from 'expo-status-bar'
-import { StyleSheet } from 'react-native'
-import ContentfulContextProvider from './contexts/contentful/ContentfulContext'
-import Home from './views/Home'
 
 export default function App() {
   return (
-    <ContentfulContextProvider>
-      <StatusBar style="auto" />
-      <Home />
-    </ContentfulContextProvider>
+    <NavigationContainer>
+      <StatusBar translucent />
+      <UserContextProvider>
+        <AuthNavigator />
+      </UserContextProvider>
+    </NavigationContainer>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-})
