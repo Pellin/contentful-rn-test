@@ -10,7 +10,7 @@ import {
 } from 'react-native'
 import { UserContext } from '../../contexts/user/UserContext'
 
-const Login = ({}) => {
+const Login = () => {
   const navigation = useNavigation()
   const { handleLogin, promptAsync } = useContext(UserContext)!
   const [email, setEmail] = useState<string>('')
@@ -108,8 +108,8 @@ const styles = StyleSheet.create({
   },
   googleButton: {
     backgroundColor: '#fff',
-    borderColor: '#ababab',
-    borderWidth: 1,
+    borderColor: '#4285F4',
+    borderWidth: 2,
     width: '70%',
   },
   buttontext: {
@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   googleButtontext: {
-    color: '#ababab',
+    color: '#4285F4',
     fontWeight: '700',
     fontSize: 16,
   },

@@ -4,7 +4,12 @@ export interface User {
   email: string
   favorites: string[]
   tags: string[]
-  account: object
+  account: {
+    type: string
+    payment: string
+    expires: Date
+    notifications: boolean
+  }
 }
 
 export interface UserContextInterface {
@@ -15,4 +20,5 @@ export interface UserContextInterface {
   handleLogout: () => void
   getUserFromDb: (email: string) => Promise<void>
   promptAsync: any
+  createAccount: (user: User, password: string) => Promise<void>
 }

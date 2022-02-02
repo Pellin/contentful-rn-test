@@ -7,6 +7,6 @@ declare module '@env' {
   export const FB_STORAGE_BUCKET: string
   export const FB_MESSAGING_SENDER_ID: string
   export const FB_APP_ID: string
-  export const GCLOUD_CLIENT_ID
-  export const GCLOUD_STATE
+  export const GCLOUD_CLIENT_ID: string
+  export const GCLOUD_STATE: string
 }

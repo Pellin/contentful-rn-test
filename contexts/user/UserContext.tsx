@@ -3,6 +3,7 @@ import {
   db,
   doc,
   getDoc,
+  setDoc,
   auth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -81,16 +82,24 @@ const UserContextProvider: React.FC = (props) => {
     if (userSnap.exists()) {
       setUser(userSnap.data() as User)
     } else {
-      console.log('user not saved in firestore')
-
-      // createNewUser(name, email)
+      // move untracked user to select tags, register account, then to createAccount
     }
+  }
+
+  const createAccount = async (user: User, password: string) => {
+    console.log(user)
+    console.log(password)
+
+    await setDoc(doc(db, 'users', user.email), user)
+
+    handleSignup(user.email, password)
   }
 
   const userContext: UserContextInterface = {
     user: user!,
     setUser,
     handleSignup,
+    createAccount,
     handleLogin,
     handleLogout,
     getUserFromDb,
